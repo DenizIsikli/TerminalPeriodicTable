@@ -10,7 +10,7 @@ AtomicNumber,Element,Symbol,AtomicMass,NumberofNeutrons,NumberofProtons,Numberof
 9,Fluorine,F,18.998,10,9,9,2,17,gas,,yes,,yes,,Halogen,0.57,3.98,17.4228,1.70E-03,53.63,85.03,6,Moissan,1886,0.824,2,7
 10,Neon,Ne,20.18,10,10,10,2,18,gas,,yes,,yes,,Noble Gas,0.51,,21.5645,9.00E-04,24.703,27.07,8,Ramsay and Travers,1898,1.03,2,8
 11,Sodium,Na,22.99,12,11,11,3,1,solid,,yes,yes,,,Alkali Metal,2.2,0.93,5.1391,9.71E-01,371.15,1156,7,Davy,1807,1.228,3,1
-12,Magnesium,Mg,24.305,12,12,12,3,2,solid,,yes,yes,,,Alkaline Earth Metal,1.7,1.31,7.6462,1.74E+00,923.15,1363,8,Black,1755,1.023,3,2
+12,Magnesium,Mg,24.305,12,12,12A,3,2,solid,,yes,yes,,,Alkaline Earth Metal,1.7,1.31,7.6462,1.74E+00,923.15,1363,8,Black,1755,1.023,3,2
 13,Aluminum,Al,26.982,14,13,13,3,13,solid,,yes,yes,,,Metal,1.8,1.61,5.9858,2.70E+00,933.4,2792,8,Wshler,1827,0.897,3,3
 14,Silicon,Si,28.086,14,14,14,3,14,solid,,yes,,,yes,Metalloid,1.5,1.9,8.1517,2.33E+00,1683.15,3538,8,Berzelius,1824,0.705,3,4
 15,Phosphorus,P,30.974,16,15,15,3,15,solid,,yes,,yes,,Nonmetal,1.2,2.19,10.4867,1.82E+00,317.25,553,7,BranBrand,1669,0.769,3,5

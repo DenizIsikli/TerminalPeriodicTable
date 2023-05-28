@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -20,7 +19,8 @@ void initializePeriodicTableFromFile(const char *filename) {
     FILE *file = fopen(filename, "r");
 
     if (file == NULL) {
-        printf("Failed  to open the file.\n");
+        perror("Error");
+        printf("Failed to open the file: %s\n", filename);
         return;
     }
 
@@ -42,11 +42,11 @@ void initializePeriodicTableFromFile(const char *filename) {
 }
 
 int main() {
-    const char *filename = "PeriodicTable.csv";
+    const char *filename = "PeriodicTable.txt";
     initializePeriodicTableFromFile(filename);
 
     int atomicNumber;
-    scanf("%d", atomicNumber);
+    scanf("%d", &atomicNumber);
 
     Element *element = NULL;
 

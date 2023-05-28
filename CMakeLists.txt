@@ -3,4 +3,4 @@ project(PeriodicTable)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PeriodicTable main.cpp)
+add_executable(PeriodicTable main.c)
