@@ -2,14 +2,13 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_LINE_LENGTH 50
-#define MAX_COLUMN_LENGTH 50
+#define MAX_LINE_LENGTH 1000
 #define NUM_ELEMENTS 118
 
 typedef struct {
     int atomicNumber;
-    char symbol[MAX_COLUMN_LENGTH];
-    char name[MAX_COLUMN_LENGTH];
+    char symbol[3];
+    char name[20];
     double atomicWeight;
 } Element;
 
@@ -29,7 +28,7 @@ void initializePeriodicTableFromFile(const char *filename) {
 
     int index = 0;
 
-    while (fgets(line, sizeof(line), file) != NULL && index < NUM_ELEMENTS) {
+    while (!feof(file)) {
         sscanf(line, "%d,%[^,],%[^,],%lf",
                &periodicTable[index].atomicNumber,
                periodicTable[index].symbol,
@@ -41,13 +40,7 @@ void initializePeriodicTableFromFile(const char *filename) {
     fclose(file);
 }
 
-int main() {
-    const char *filename = "PeriodicTable.txt";
-    initializePeriodicTableFromFile(filename);
-
-    int atomicNumber;
-    scanf("%d", &atomicNumber);
-
+void returnElement(int atomicNumber) {
     Element *element = NULL;
 
     for (int i = 0; i < NUM_ELEMENTS; i++) {
@@ -64,6 +57,22 @@ int main() {
         /* ... print other fields ... */
     } else {
         printf("Element with atomic number %d not found.\n", atomicNumber);
+    }
+}
+
+int main() {
+    const char *filename = "C:\\Users\\deniz\\CLionProjects\\PeriodicTable\\PeriodicTable.txt";
+    initializePeriodicTableFromFile(filename);
+
+    int atomicNumber;
+    scanf("%d", &atomicNumber);
+
+    printf("The scanned atomicNumber is: %d", atomicNumber);
+
+    if(atomicNumber != NULL) {
+        returnElement(atomicNumber);
+    } else {
+        perror("Error");
     }
 
     return 0;
