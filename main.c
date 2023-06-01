@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <omp.h>
 
 #define MAX_LINE_LENGTH 1000
 #define NUM_ELEMENTS 118
+
+void initializePeriodicTableFromFile(const char *filename);
+void returnElement(int atomicNumber);
 
 typedef struct {
     int atomicNumber;
