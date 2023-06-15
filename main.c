@@ -55,10 +55,10 @@ void returnElement(int atomicNumber) {
         printf("Atomic number: %d\n", element->atomicNumber);
         printf("Element name: %s\n", element->name);
         printf("Symbol: %s\n", element->symbol);
-        printf("Atomic Weight: %.2lf\n", element->atomicWeight);
+        printf("Atomic Weight: %.2lf\n\n", element->atomicWeight);
         /* ... print other fields ... */
     } else {
-        printf("Element with atomic number %d not found.\n", atomicNumber);
+        printf("Element with atomic number %d not found.\n\n12", atomicNumber);
     }
 }
 
@@ -67,10 +67,20 @@ int main() {
     initializePeriodicTableFromFile(filename);
 
     int atomicNumber;
-    if(scanf("%d", &atomicNumber) == 1) {
-        returnElement(atomicNumber);
-    } else {
-        perror("Error");
+    char input[10];
+
+    while (true) {
+        printf("Enter an atomic number (or 'q' to quit):");
+
+        if (scanf("%d", &atomicNumber) == 1) {
+            returnElement(atomicNumber);
+        } else {
+            printf("Invalid input. Please enter a valid atomic number or 'q' to quit.\n");
+        }
+
+        if (input[0] == 'q' || input[0] == 'Q') {
+            break;  // Exit the loop if 'q' or 'Q' is entered
+        }
     }
     return 0;
 }
