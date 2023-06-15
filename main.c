@@ -24,19 +24,16 @@ void initializePeriodicTableFromFile(const char *filename) {
     }
 
     char line[MAX_LINE_LENGTH];
-    fgets(line, sizeof(line), file);
-
     int index = 0;
 
-    while (!feof(file)) {
+    while (fgets(line, sizeof(line), file) != NULL) {
         sscanf(line, "%d,%[^,],%[^,],%lf",
                &periodicTable[index].atomicNumber,
-               periodicTable[index].symbol,
                periodicTable[index].name,
+               periodicTable[index].symbol,
                &periodicTable[index].atomicWeight);
         index++;
     }
-
     fclose(file);
 }
 
@@ -51,7 +48,8 @@ void returnElement(int atomicNumber) {
     }
 
     if (element != NULL) {
-        printf("Element: %s\n", element->name);
+        printf("Atomic number: %d\n", element->atomicNumber);
+        printf("Element name: %s\n", element->name);
         printf("Symbol: %s\n", element->symbol);
         printf("Atomic Weight: %.2lf\n", element->atomicWeight);
         /* ... print other fields ... */
@@ -65,15 +63,10 @@ int main() {
     initializePeriodicTableFromFile(filename);
 
     int atomicNumber;
-    scanf("%d", &atomicNumber);
-
-    printf("The scanned atomicNumber is: %d", atomicNumber);
-
-    if(atomicNumber != NULL) {
+    if(scanf("%d", &atomicNumber) == 1) {
         returnElement(atomicNumber);
     } else {
         perror("Error");
     }
-
     return 0;
 }
