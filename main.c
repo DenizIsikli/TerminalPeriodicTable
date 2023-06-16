@@ -58,7 +58,7 @@ void returnElement(int atomicNumber) {
         printf("Atomic Weight: %.2lf\n\n", element->atomicWeight);
         /* ... print other fields ... */
     } else {
-        printf("Element with atomic number %d not found.\n\n12", atomicNumber);
+        printf("Element with atomic number %d not found.\n\n", atomicNumber);
     }
 }
 
