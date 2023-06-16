@@ -16,6 +16,7 @@ typedef struct {
     double atomicWeight;
 } Element;
 
+// Create 118 elements
 Element periodicTable[NUM_ELEMENTS];
 
 void initializePeriodicTableFromFile(const char *filename) {
@@ -31,6 +32,7 @@ void initializePeriodicTableFromFile(const char *filename) {
     int index = 0;
 
     while (fgets(line, sizeof(line), file) != NULL) {
+        // Replace whatever is read from "line" accordingly with format and insert information for every element
         sscanf(line, "%d,%[^,],%[^,],%lf",
                &periodicTable[index].atomicNumber,
                periodicTable[index].name,
@@ -46,11 +48,13 @@ void returnElement(int atomicNumber) {
 
     for (int i = 0; i < NUM_ELEMENTS; i++) {
         if (periodicTable[i].atomicNumber == atomicNumber) {
+            // If the element is found given the parameter, put the information in object "element"
             element = &periodicTable[i];
             break;
         }
     }
 
+    // Print information
     if (element != NULL) {
         printf("Atomic number: %d\n", element->atomicNumber);
         printf("Element name: %s\n", element->name);
@@ -72,6 +76,7 @@ int main() {
     while (true) {
         printf("Enter an atomic number (or 'q' to quit):");
 
+        // Input for the atomic number
         if (scanf("%d", &atomicNumber) == 1) {
             returnElement(atomicNumber);
         } else {
